@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "326522537089",
+    "firebase_url": "https://pipoc-5506f.firebaseio.com",
+    "project_id": "pipoc-5506f",
+    "storage_bucket": "pipoc-5506f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326522537089:android:6ac7d3ef90e6b0a3",
+        "android_client_info": {
+          "package_name": "br.com.verhalen.pipocapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "326522537089-gm1r3bksj1gdn6lvkl693qjqgi2lbdv1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.verhalen.pipocapp",
+            "certificate_hash": "bfbbb5ae02f10813ed5e8dbb5747e59414d35d61"
+          }
+        },
+        {
+          "client_id": "326522537089-vlvda24hbs5ik4mj3f6on8si8qqr5eif.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE5np1SF0LlQ_Qrnzl92zmTM8OuNavSPY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "326522537089-vlvda24hbs5ik4mj3f6on8si8qqr5eif.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
