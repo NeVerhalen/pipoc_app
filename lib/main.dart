@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pipoc_app/ui/homePage.dart';
+//import 'package:pipoc_app/ui/homePage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:pipoc_app/ui/main_screen.dart';
+//import 'package:pipoc_app/ui/tab/HomeTab.dart';
+//import 'package:tmdb/io.dart';
 
 
 void main() async {
@@ -11,14 +13,14 @@ void main() async {
 
   runApp(MaterialApp(
       title: "Pipoc",
-      home: HomePage(),
+      home: MainScreen(),
   ));
 
 }
 final googleSignIn = GoogleSignIn();
 final auth = FirebaseAuth.instance;
 
-Future<Null>_ensureLoggedIn() async {
+/*Future<Null>_ensureLoggedIn() async {
   GoogleSignInAccount user = googleSignIn.currentUser;
   if(user == null)
   user = await googleSignIn.signInSilently();
@@ -29,9 +31,8 @@ Future<Null>_ensureLoggedIn() async {
     await auth.signInWithGoogle(
         email:credentials.idToken, password: credentials.accessToken);
 
-  }
+  }*/
 
-}
 
 
 
