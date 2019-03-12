@@ -25,7 +25,7 @@ class CustomDrawer extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(bottom: 8.0),
                 padding: EdgeInsets.fromLTRB(0.0, 16.0, 16.0,8.0 ),
-                height: 170.0,
+                height: 110.0,
                 child: Stack(
                   children: <Widget>[
                     Positioned(
@@ -34,10 +34,24 @@ class CustomDrawer extends StatelessWidget {
                       child: Text("Pipoc",
                       style: TextStyle(fontSize: 34.0,fontWeight: FontWeight.w400),
                       ),
+                    ),
+                    Positioned(
+                      left: 0.0,
+                      bottom: 0.0,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("Olá,",
+                          style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold)
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ),
-              )
+              ),
+              Divider(),
+              DrawerTile(),
             ],
           )
         ],

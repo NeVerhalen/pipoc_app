@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pipoc_app/Banco/People.dart';
+import 'package:pipoc_app/ui/main_screen.dart';
 import 'package:pipoc_app/ui/start_page.dart';
 
 
@@ -69,24 +70,22 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(color: Colors.red, fontSize: 15.0),
           ),
 
-          Container(
-              height: 35.0,
-              width: 300.0,
-              child:  RaisedButton(
-               /* onPressed: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => StartPage(this._TextData))
-                  );
-                },*/
-                child: Text("ENTRAR", style: TextStyle(color: Colors.white, fontSize: 15.0),),
-                color: Colors.redAccent,
 
-              )
-          )
+           // child: Container(
+               // height: 35.0,
+               // width: 300.0,
+                 RaisedButton(
+                   onPressed: (){
+                     // ignore: unused_local_variable
+                     body: var mainScreen = MainScreen();
+                   },
+                  child: Text("ENTRAR",
+                    style: TextStyle(color: Colors.white, fontSize: 15.0
+                  ),
+                  ),
+                  color: Colors.redAccent,
+                ),
         ],
-
-
-
       ),
     );
 
