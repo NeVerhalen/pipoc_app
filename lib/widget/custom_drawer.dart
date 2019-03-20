@@ -51,7 +51,7 @@ class CustomDrawer extends StatelessWidget {
                 ),
               ),
               Divider(),
-              DrawerTile(),
+              // DrawerTile(),
             ],
           )
         ],
