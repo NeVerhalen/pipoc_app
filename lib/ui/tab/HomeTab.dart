@@ -11,7 +11,15 @@ class HomeTab extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Home(),
+        // Essa CustomScrollView está roubando
+        // todos os eventos de tab que acontecem.
         CustomScrollView(
+          // shrinkWrap: true vai fazer funcionar pois
+          // a view agora ocupa só espaço necessário para
+          // a SliverAppBar, porém eu recomendo não usar a
+          // CustomScrollView ou reestruturar ela para
+          // que o o grid fique do campo slivers.
+          shrinkWrap: true,
           slivers: <Widget>[
             SliverAppBar(
               floating: true,
