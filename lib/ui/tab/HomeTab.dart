@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pipoc_app/ui/homePage.dart';
+import 'package:pipoc_app/ui/principal_filme.dart';
+import'package:cloud_firestore/cloud_firestore.dart';
+
 
 class HomeTab extends StatelessWidget {
   @override
@@ -64,86 +67,52 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     ); //Onde está o coração e o ponto de exclamação em cima
 
     var gridView1 = GridView.builder(
-      itemCount: 20,
+      itemCount: 4,
       gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 20.0),
       itemBuilder: (BuildContext context, int index) {
+        final imageName = index <4 ?
+        "images/images/Img${index + 1}.jpg" : "images/images/Img${index + 1}.jpg";
         return GestureDetector(
-          child: Card(
-            elevation: 5.0,
-            child: Container(
-              alignment: Alignment.center,
-              child: Text('Item $index'),
-            ),
+          child: Image.asset(
+          imageName,
+          width: 100.0,
+          height: 40.0,
+          fit: BoxFit.contain,
+
           ),
+
           onTap: () {
-            showDialog(
-              barrierDismissible: false,
-              context: context,
-              child: CupertinoAlertDialog(
-                title: Column(
-                  children: <Widget>[
-                    Text("GridView"),
-                    Icon(
-                      Icons.favorite,
-                      color: Colors.green,
-                    ),
-                  ],
-                ),
-                content: Text("Selected Item $index"),
-                actions: <Widget>[
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text("OK"),
-                  )
-                ],
-              ),
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context) => Principal())
             );
+
           },
         );
+
       },
     ); //Primeiro Grid, de favoritos
 
     var gridView2 = GridView.builder(
-      itemCount: 20,
+      itemCount: 5,
       gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 20.0),
       itemBuilder: (BuildContext context, int index) {
+        final imageName2 = index < 5 ?
+        "images/images/Fut${index + 1}.jpg" : "images/images/Fut${index + 1}.jpg";
         return GestureDetector(
-          child: Card(
-            elevation: 5.0,
-            child: Container(
-              alignment: Alignment.center,
-              child: Text('Item $index'),
-            ),
+          child: Image.asset(
+            imageName2,
+            width: 10.0,
+            height: 20.0,
+            fit: BoxFit.contain,
           ),
+
           onTap: () {
-            showDialog(
-              barrierDismissible: false,
-              context: context,
-              child: CupertinoAlertDialog(
-                title: Column(
-                  children: <Widget>[
-                    Text("GridView"),
-                    Icon(
-                      Icons.favorite,
-                      color: Colors.green,
-                    ),
-                  ],
-                ),
-                content: Text("Selected Item $index"),
-                actions: <Widget>[
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text("OK"),
-                  )
-                ],
-              ),
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Principal())
             );
+
           },
         );
       },
@@ -156,6 +125,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           title: Text("PIPOC"),
           bottom: tabBarItem,
         ),
+        backgroundColor: Colors.red,
         //Aqui provavelmente é onde vc deverá mudar, já que é aquela barra de cima
 
         body: TabBarView(
