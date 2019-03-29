@@ -5,6 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pipoc_app/ui/main_screen.dart';
 import 'package:pipoc_app/ui/principal_filme.dart';
+import 'package:pipoc_app/Teste.dart';
 
 
 
@@ -13,7 +14,7 @@ void main() async {
 
   runApp(MaterialApp(
       title: "Pipoc",
-      home: MainScreen(),
+      home: Teste(),
   ));
 
 }
