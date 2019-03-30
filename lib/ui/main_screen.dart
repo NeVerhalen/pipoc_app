@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pipoc_app/ui/tab/GPSTab.dart';
 import 'package:pipoc_app/ui/tab/HomeTab.dart';
 import 'package:pipoc_app/widget/custom_drawer.dart';
 
@@ -15,11 +16,22 @@ class MainScreen extends StatelessWidget {
       children: <Widget>[
         Scaffold(
           body: HomeTab(),
-          drawer: CustomDrawer(),
-        )
+          drawer: CustomDrawer(_pageController),
+        ),
+        Container(color: Colors.white,),
+        Scaffold(
+          appBar: AppBar(
+            title: Text("Onde estou"),
+            centerTitle: true,
+          ),
+          drawer: CustomDrawer(_pageController),
+          body: GPSTab(),
+        ),
+        Container(color: Colors.pinkAccent,),
       ],
     );
   }
 }
+
 
 
