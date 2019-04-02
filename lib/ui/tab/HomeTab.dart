@@ -66,6 +66,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       indicatorColor: Colors.red,
     ); //Onde está o coração e o ponto de exclamação em cima
 
+
     var gridView1 = GridView.builder(
       itemCount: 4,
       gridDelegate:

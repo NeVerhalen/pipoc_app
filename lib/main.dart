@@ -14,7 +14,7 @@ void main() async {
 
   runApp(MaterialApp(
       title: "Pipoc",
-      home: MainScreen(),
+      home: HomePage(),
   ));
 
 }

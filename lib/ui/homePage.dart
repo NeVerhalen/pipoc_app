@@ -2,7 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:pipoc_app/Banco/People.dart';
 import 'package:pipoc_app/ui/main_screen.dart';
 import 'package:pipoc_app/ui/start_page.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
+
+void homePage()async{
+  runApp(HomePage());
+}
+final googleSignIn = GoogleSignIn();
+final auth = FirebaseAuth.instance;
+
+Future<Null>_ensureLoggedIn() async {
+  GoogleSignInAccount user = googleSignIn.currentUser;
+  if(user == null)
+    user = await googleSignIn.signInSilently();
+  if (user == null)
+    user = await googleSignIn.signIn();
+  if(await auth.currentUser() == null){
+    GoogleSignInAuthentication credentials = await googleSignIn.currentUser.authentication;
+    await auth.linkWithCredential(GoogleAuthProvider.getCredential(idToken: credentials.idToken, accessToken: credentials.accessToken)
+        );
+  }
+}
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,17 +36,17 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    super.initState();
+    /*super.initState();
 
-    /*People c = People();
+    *//*People c = People();
     c.email = "ju.micolino@hotmail.com";
-    c.senha = "6789";*//*
+    c.senha = "6789";*//**//*
 
-    helper.savePeople(c);*/
+    helper.savePeople(c);*//*
 
     helper.getAllPeople().then((list){
       print(list);
-    });
+    });*/
   }
 
   @override
@@ -71,20 +92,23 @@ class _HomePageState extends State<HomePage> {
           ),
 
 
-           // child: Container(
-               // height: 35.0,
-               // width: 300.0,
-                 RaisedButton(
-                   onPressed: (){
-                     // ignore: unused_local_variable
-                     body: var mainScreen = MainScreen();
-                   },
-                  child: Text("ENTRAR",
-                    style: TextStyle(color: Colors.white, fontSize: 15.0
-                  ),
-                  ),
-                  color: Colors.redAccent,
+          // child: Container(
+          // height: 35.0,
+          // width: 300.0,
+          RaisedButton(
+            onPressed: (){
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => MainScreen()
                 ),
+              );
+            },
+            child: Text("ENTRAR",
+              style: TextStyle(color: Colors.white, fontSize: 15.0
+              ),
+            ),
+            color: Colors.redAccent,
+          ),
         ],
       ),
     );
