@@ -25,7 +25,6 @@ dependencies:
   firebase_storage: 2.0.0
 
 
-
   sqflite: any
 
 dev_dependencies:
@@ -50,10 +49,23 @@ flutter:
   #  - images/a_dot_ham.jpeg
 
   assets:
+<<<<<<< HEAD
    - images/PipocaTela2.jpg
    - images/Img1.jpg
    - images/Img2.jpg
    - images/Img3.png
+=======
+   - images/images/PipocaTela2.jpg
+   - images/images/Img1.jpg
+   - images/images/Img2.jpg
+   - images/images/Img3.jpg
+   - images/images/Img4.jpg
+   - images/images/Fut1.jpg
+   - images/images/Fut2.jpg
+   - images/images/Fut3.jpg
+   - images/images/Fut4.jpg
+   - images/images/Fut5.jpg
+>>>>>>> origin/newcommit
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
