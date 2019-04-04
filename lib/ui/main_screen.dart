@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:pipoc_app/ui/homePage.dart';
 import 'package:pipoc_app/ui/tab/GPSTab.dart';
 import 'package:pipoc_app/ui/tab/HomeTab.dart';
 import 'package:pipoc_app/widget/custom_drawer.dart';
 
 class MainScreen extends StatelessWidget {
+  final DocumentSnapshot snapshot;
+  MainScreen(this.snapshot);
 
   final _pageController = PageController();
 
@@ -15,7 +19,7 @@ class MainScreen extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       children: <Widget>[
         Scaffold(
-          body: HomeTab(),
+          body: HomeTab(this.snapshot),
           drawer: CustomDrawer(_pageController),
         ),
         Container(color: Colors.white,),
@@ -27,7 +31,9 @@ class MainScreen extends StatelessWidget {
           drawer: CustomDrawer(_pageController),
           body: GPSTab(),
         ),
-        Container(color: Colors.pinkAccent,),
+        Scaffold(
+          body: HomePage(),
+        ),
       ],
     );
   }

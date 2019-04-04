@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+class Principal{
 
-class Principal extends StatefulWidget {
-  @override
-  _PrincipalState createState() => _PrincipalState();
-}
+  String category;
+  String id;
+  String title;
+  String image;
+  String sinopse;
+  String date;
 
-class _PrincipalState extends State<Principal> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("PIPOC"),
-        centerTitle: true,
-        backgroundColor: Colors.red,
-      ),
-      backgroundColor: Colors.red,
+  Principal.fromDocument(DocumentSnapshot snapshot){
+    id = snapshot.documentID;
+    title = snapshot.data["title"];
+    sinopse = snapshot.data["sinopse"];
+    image = snapshot.data["imagem"];
+    date = snapshot.data["data de estréia"];
 
-    );
   }
+  Map<String, dynamic> toResumedMap(){
+    return {
+      "title": title,
+      "sinopse": sinopse
+    };
+  }
+
 }
 
