@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pipoc_app/models/user_model.dart';
 import 'package:pipoc_app/ui/cadastro.dart';
 import 'package:pipoc_app/ui/homePage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -8,6 +9,7 @@ import 'package:pipoc_app/ui/main_screen.dart';
 import 'package:pipoc_app/ui/principal_filme.dart';
 import 'package:pipoc_app/Teste.dart';
 import 'package:pipoc_app/ui/tab/HomeTab.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 
 
@@ -17,10 +19,12 @@ class Pipoc extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-
-    return MaterialApp(
+return ScopedModel<UserModel>(
+  model: UserModel(),
+    child: MaterialApp(
       title: "Pipoc",
       home: HomePage(),
+    )
     );
   }
 }
