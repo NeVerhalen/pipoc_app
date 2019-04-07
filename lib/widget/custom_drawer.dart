@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pipoc_app/models/user_model.dart';
 import 'package:pipoc_app/ui/tiles/DrawerTile.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class CustomDrawer extends StatelessWidget {
 
@@ -44,14 +46,18 @@ class CustomDrawer extends StatelessWidget {
                     Positioned(
                       left: 0.0,
                       bottom: 0.0,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("Olá,",
-                              style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold)
-                          )
-                        ],
-                      ),
+                      child: ScopedModelDescendant<UserModel>(
+                        builder: (context, child, model){
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Olá, ${!model.isLoggedIn() ? "" : model.userData["name"]}",
+                                  style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold)
+                              )
+                            ],
+                          );
+                        },
+                      )
                     )
                   ],
                 ),

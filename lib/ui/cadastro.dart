@@ -14,10 +14,12 @@ class _CadastroState extends State<Cadastro> {
   final _passController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
         appBar: AppBar(
           title: Text("PIPOC"),
           centerTitle: true,
@@ -155,9 +157,28 @@ class _CadastroState extends State<Cadastro> {
     );
   }
   void _onSuccess(){
+//    _scaffoldKey.currentState.showSnackBar(
+//      SnackBar(content: Text("Usuário Criado com Sucesso!"),
+//      backgroundColor: Theme.of(context).primaryColor,
+//      duration: Duration(seconds: 2),
+//      )
+//    );
+//    Future.delayed(Duration(seconds: 2)).then((_){
+//      Navigator.of(context).pop();
+//    });
 
   }
   void _onFail(){
+
+//    _scaffoldKey.currentState.showSnackBar(
+//        SnackBar(content: Text("Usuário Não Foi Criado com Sucesso!"),
+//          backgroundColor: Theme.of(context).primaryColor,
+//          duration: Duration(seconds: 2),
+//        )
+//    );
+//    Future.delayed(Duration(seconds: 2)).then((_){
+//      Navigator.of(context).pop();
+//    });
   }
 }
 

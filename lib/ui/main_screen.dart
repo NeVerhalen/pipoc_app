@@ -32,6 +32,7 @@ class MainScreen extends StatelessWidget {
           body: GPSTab(),
         ),
         Scaffold(
+          drawer: CustomDrawer(_pageController),
           body: HomePage(),
         ),
       ],
