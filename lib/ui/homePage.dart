@@ -28,7 +28,8 @@ class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
   final _pageController = PageController();
 
-  //PageController get pageController => null;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +104,9 @@ class _HomePageState extends State<HomePage> {
                     child: RaisedButton(
                       onPressed: (){
                         if(_formKey.currentState.validate()){
-                          
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) => HomeTab())
+
                           );
 
                         }

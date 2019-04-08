@@ -157,28 +157,28 @@ class _CadastroState extends State<Cadastro> {
     );
   }
   void _onSuccess(){
-//    _scaffoldKey.currentState.showSnackBar(
-//      SnackBar(content: Text("Usuário Criado com Sucesso!"),
-//      backgroundColor: Theme.of(context).primaryColor,
-//      duration: Duration(seconds: 2),
-//      )
-//    );
-//    Future.delayed(Duration(seconds: 2)).then((_){
-//      Navigator.of(context).pop();
-//    });
+_scaffoldKey.currentState.showSnackBar(
+    SnackBar(content: Text("Usuário Criado com Sucesso!"),
+     backgroundColor: Theme.of(context).primaryColor,
+    duration: Duration(seconds: 2),
+      )
+   );
+   Future.delayed(Duration(seconds: 2)).then((_){
+     Navigator.of(context).pop();
+   });
 
   }
   void _onFail(){
 
-//    _scaffoldKey.currentState.showSnackBar(
-//        SnackBar(content: Text("Usuário Não Foi Criado com Sucesso!"),
-//          backgroundColor: Theme.of(context).primaryColor,
-//          duration: Duration(seconds: 2),
-//        )
-//    );
-//    Future.delayed(Duration(seconds: 2)).then((_){
-//      Navigator.of(context).pop();
-//    });
+   _scaffoldKey.currentState.showSnackBar(
+       SnackBar(content: Text("Usuário Não Foi Criado com Sucesso!"),
+          backgroundColor: Theme.of(context).primaryColor,
+          duration: Duration(seconds: 2),
+        )
+    );
+    Future.delayed(Duration(seconds: 2)).then((_){
+     Navigator.of(context).pop();
+    });
   }
 }
 

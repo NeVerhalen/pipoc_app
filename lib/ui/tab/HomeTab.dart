@@ -8,8 +8,6 @@ import 'package:pipoc_app/ui/tiles/principal_tile.dart';
 
 
 class HomeTab extends StatelessWidget {
-  final DocumentSnapshot snapshot;
-  HomeTab(this.snapshot);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +16,7 @@ class HomeTab extends StatelessWidget {
 
     return Stack(
       children: <Widget>[
-        Home(this.snapshot),
+        Home(),
         // Essa CustomScrollView está roubando
         // todos os eventos de tab que acontecem.
         CustomScrollView(
@@ -47,61 +45,102 @@ class HomeTab extends StatelessWidget {
 } //Inicia o Grid dando a cor base
 
 class Home extends StatefulWidget {
-  final DocumentSnapshot snapshot;
-  Home(this.snapshot);
+
 
   @override
-  _HomeState createState() => _HomeState(this.snapshot);
+  _HomeState createState() => _HomeState();
 } //a classe
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
   TabController tabController;
-  final DocumentSnapshot snapshot;
-  _HomeState(this.snapshot);
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController( length: 1,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('PIPOC'),
-          centerTitle: true,
-          bottom: TabBar(
-            indicatorColor: Colors.red,
-          ),
+    var tabBarItem = TabBar(
+      tabs: [
+        Tab(
+          icon: Icon(Icons.favorite_border),
         ),
-        body: FutureBuilder <QuerySnapshot>(
-            future: Firestore.instance.collection("Filmes").document(snapshot.documentID)
-            .collection("Aquaman").getDocuments(),
-            builder: (context, snapshot) {
-          if (!snapshot.hasData)
-            return Center(child: CircularProgressIndicator(),);
-          else
-            return TabBarView(children: [
-              GridView.builder(
-                padding: EdgeInsets.all(4.0),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 4.0,
-                      crossAxisSpacing: 4.0,
-                    childAspectRatio: 0.20,
-                  ),
-                  itemCount: snapshot.data.documents.length,
-                  itemBuilder: (
-                  context, index
-                  ){
-                  return PrincipalTile("grid", Principal.fromDocument(snapshot.data.documents[index]));
-                  }
-              ),
-              Container(color: Colors.red,)]
-            );
-        },
+        Tab(
+          icon: Icon(Icons.new_releases),
         ),
-      ),
-
+      ],
+      controller: tabController,
+      indicatorColor: Colors.red,
     );
 
-    //Onde está o coração e o ponto de exclamação em cima
+    var gridView1 = GridView.builder(
+      itemCount: 4,
+      gridDelegate:
+      SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 20.0),
+      itemBuilder: (BuildContext context, int index) {
+        final imageName = index <4 ?
+        "images/images/Img${index + 1}.jpg" : "images/images/Img${index + 1}.jpg";
+        return GestureDetector(
+          child: Image.asset(
+            imageName,
+            width: 100.0,
+            height: 40.0,
+            fit: BoxFit.contain,
 
+          ),
+
+          onTap: () {
+//            Navigator.push(
+//                context,
+//                MaterialPageRoute(builder: (context) => Principal())
+//            );
+
+          },
+        );
+
+      },
+    ); //Primeiro Grid, de favoritos
+
+    var gridView2 = GridView.builder(
+      itemCount: 5,
+      gridDelegate:
+      SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 20.0),
+      itemBuilder: (BuildContext context, int index) {
+        final imageName2 = index < 5 ?
+        "images/images/Fut${index + 1}.jpg" : "images/images/Fut${index + 1}.jpg";
+        return GestureDetector(
+          child: Image.asset(
+            imageName2,
+            width: 10.0,
+            height: 20.0,
+            fit: BoxFit.contain,
+          ),
+
+          onTap: () {
+//            Navigator.push(context,
+//                MaterialPageRoute(builder: (context) => Principal())
+//            );
+
+          },
+        );
+      },
+    ); //segundo Grid de lançamentos
+
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("PIPOC"),
+          bottom: tabBarItem,
+        ),
+        backgroundColor: Colors.red,
+        //Aqui provavelmente é onde vc deverá mudar, já que é aquela barra de cima
+
+        body: TabBarView(
+          controller: tabController,
+          children: [
+            /*listItem,*/
+            gridView1,
+            gridView2,
+          ],
+        ), //Corpinho onde chama os Grids
+      ),
+    );
   }
 }

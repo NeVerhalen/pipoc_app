@@ -19,7 +19,7 @@ class MainScreen extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       children: <Widget>[
         Scaffold(
-          body: HomeTab(this.snapshot),
+          body: HomeTab(),
           drawer: CustomDrawer(_pageController),
         ),
         Container(color: Colors.white,),
