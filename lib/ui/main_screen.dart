@@ -6,8 +6,7 @@ import 'package:pipoc_app/ui/tab/HomeTab.dart';
 import 'package:pipoc_app/widget/custom_drawer.dart';
 
 class MainScreen extends StatelessWidget {
-  final DocumentSnapshot snapshot;
-  MainScreen(this.snapshot);
+
 
   final _pageController = PageController();
 

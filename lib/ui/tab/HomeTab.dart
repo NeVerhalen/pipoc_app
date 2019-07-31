@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:pipoc_app/ui/homePage.dart';
 import 'package:pipoc_app/ui/principal_filme.dart';
 import'package:cloud_firestore/cloud_firestore.dart';
-import 'package:pipoc_app/ui/principal_filme.dart';
-import 'package:pipoc_app/ui/tiles/principal_tile.dart';
+
 
 
 class HomeTab extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
+    //  Home(); nao presta
     ThemeData(primaryColor: Colors.red);
 
     return Stack(
@@ -45,8 +43,6 @@ class HomeTab extends StatelessWidget {
 } //Inicia o Grid dando a cor base
 
 class Home extends StatefulWidget {
-
-
   @override
   _HomeState createState() => _HomeState();
 } //a classe
@@ -56,6 +52,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    tabController = TabController(length: 2, vsync: this);
+
     var tabBarItem = TabBar(
       tabs: [
         Tab(
@@ -67,7 +65,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ],
       controller: tabController,
       indicatorColor: Colors.red,
-    );
+    ); //Onde está o coração e o ponto de exclamação em cima
 
     var gridView1 = GridView.builder(
       itemCount: 4,
@@ -86,10 +84,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           ),
 
           onTap: () {
-//            Navigator.push(
-//                context,
-//                MaterialPageRoute(builder: (context) => Principal())
-//            );
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomePage())
+            );
 
           },
         );
@@ -113,9 +110,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           ),
 
           onTap: () {
-//            Navigator.push(context,
-//                MaterialPageRoute(builder: (context) => Principal())
-//            );
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomePage())
+            );
 
           },
         );

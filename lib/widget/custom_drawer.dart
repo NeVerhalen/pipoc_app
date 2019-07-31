@@ -46,19 +46,17 @@ class CustomDrawer extends StatelessWidget {
                     Positioned(
                       left: 0.0,
                       bottom: 0.0,
-                      child: ScopedModelDescendant<UserModel>(
-                        builder: (context, child, model){
-                          return Column(
+                      child:  Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text("Olá, ${!model.isLoggedIn() ? "" : model.userData["name"]}",
+                              Text("Olá,",
                                   style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold)
                               )
                             ],
-                          );
-                        },
+                          ),
+
                       )
-                    )
+
                   ],
                 ),
               ),
