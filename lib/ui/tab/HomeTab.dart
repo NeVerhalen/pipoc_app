@@ -67,62 +67,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       indicatorColor: Colors.red,
     ); //Onde está o coração e o ponto de exclamação em cima
 
-<<<<<<< Updated upstream
-    var gridView1 = GridView.builder(
-      itemCount: 4,
-      gridDelegate:
-      SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 20.0),
-      itemBuilder: (BuildContext context, int index) {
-        final imageName = index <4 ?
-        "images/images/Img${index + 1}.jpg" : "images/images/Img${index + 1}.jpg";
-        return GestureDetector(
-          child: Image.asset(
-            imageName,
-            width: 100.0,
-            height: 40.0,
-            fit: BoxFit.contain,
 
-          ),
-=======
-  }
-}
->>>>>>> Stashed changes
-
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => HomePage())
-            );
-
-          },
-        );
-
-      },
-    ); //Primeiro Grid, de favoritos
-
-    var gridView2 = GridView.builder(
-      itemCount: 5,
-      gridDelegate:
-      SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 4, mainAxisSpacing: 20.0),
-      itemBuilder: (BuildContext context, int index) {
-        final imageName2 = index < 5 ?
-        "images/images/Fut${index + 1}.jpg" : "images/images/Fut${index + 1}.jpg";
-        return GestureDetector(
-          child: Image.asset(
-            imageName2,
-            width: 10.0,
-            height: 20.0,
-            fit: BoxFit.contain,
-          ),
-
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => HomePage())
-            );
-
-          },
-        );
-      },
-    ); //segundo Grid de lançamentos
 
     return DefaultTabController(
       length: 2,
